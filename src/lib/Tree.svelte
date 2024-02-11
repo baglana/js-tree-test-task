@@ -18,6 +18,16 @@
 
 <ul>
     {#each level1 as service}
-        <li>{service.id} - {service.name} - {service.head} - {service.sorthead}</li>
+        <li>
+            {#if service.children?.length}
+                <ul>
+                    {#each service.children as child}
+                        <li>{child.id} - {child.name} - {child.head} - {child.sorthead}</li>
+                    {/each}
+                </ul>
+            {:else}
+                {service.id} - {service.name} - {service.head} - {service.sorthead}
+            {/if}
+        </li>
     {/each}
 </ul>
