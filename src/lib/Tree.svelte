@@ -5,13 +5,15 @@
     export let nodes: Service[];
 
     const children = nodes.filter(node => node.head === root);
+    children.sort((a, b) => a.sorthead - b.sorthead);
 </script>
 
 <ul>
     {#each children as child}
         <li>
-            {child.id} - {child.name} - {child.head} - {child.sorthead}
-            {#if nodes.some(node => node.head === child.id)}
+            {child.name} {child.price ? `(${child.price})` : ''}
+
+            {#if child.node || nodes.some(node => node.head === child.id)}
                 <svelte:self root={child.id} {nodes}/>
             {/if}
         </li>
