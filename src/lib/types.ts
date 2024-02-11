@@ -1,11 +1,11 @@
 export type Service = {
-    id: number;
+    id: number | null;
     head: number | null;
     name: number;
     node: number;
     price: number;
     sorthead: number;
-    subservices?: Service[];
+    children?: Service[];
 }
 
 export type ServiceList = {

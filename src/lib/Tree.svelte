@@ -6,22 +6,18 @@
     const services: Service[] = data.services;
 
     const level1 = services.filter(service => service.head === null);
+    buildTreeFrom(level1);
 
-    console.log(build(level1));
-
-    function build(subservices: Service[]) {
-        subservices.forEach(node => {
-            node.subservices = services.filter(service => service.head === node.id);
-            build(node.subservices);
+    function buildTreeFrom(level: Service[]) {
+        level.forEach(node => {
+            node.children = services.filter(service => service.head === node.id);
+            buildTreeFrom(node.children);
         });
-
-        return subservices;
     }
-
 </script>
 
 <ul>
-    {#each data.services as service}
+    {#each level1 as service}
         <li>{service.id} - {service.name} - {service.head} - {service.sorthead}</li>
     {/each}
 </ul>
