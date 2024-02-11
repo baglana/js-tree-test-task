@@ -28,7 +28,7 @@ This is a solution to JS Developer test task
 ### Link
 
 - Demo
-  URL: [https://baglana.github.io/skilled-elearning-landing-page/](https://baglana.github.io/skilled-elearning-landing-page/)
+  URL: [https://baglana.github.io/js-tree-test-task/](https://baglana.github.io/js-tree-test-task/)
 
 ## My process
 
